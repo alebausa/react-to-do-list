@@ -2,18 +2,24 @@ import React, { Component } from 'react';
 import './Task.css';
 
 class Task extends Component {
-  state = {
-    crossed: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      crossed: false
+    }
+    this.crossDone = this.crossDone.bind(this);
   }
 
   crossDone() {
-    this.setState({ crossed: !this.state })
+    this.setState({
+      crossed: !this.state.crossed
+    })
   }
 
   render() {
     let li_class = this.state.crossed ? "crossedTask" : "uncrossedTask";
     return (
-      <li className={li_class} onClick={this.crossDone.bind(this)}>{this.props.children}</li>
+      <li className={li_class} onClick={this.crossDone}>{this.props.children}</li>
     );
   }
 }

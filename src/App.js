@@ -5,7 +5,6 @@ import { moreTasks } from './data/moreTasks';
 import { tasks } from './data/tasks';
 
 class App extends Component {
-
   state = {
     initialTasks: tasks
   }
@@ -22,7 +21,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>To-do list</h1>
-        <button onClick={this.addTask}>Add task</button>
+        <button className="btn" onClick={this.addTask}>Add random task</button>
         <ul>
           {this.state.initialTasks.map((task, index) => {
             return (
