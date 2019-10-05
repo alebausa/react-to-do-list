@@ -1,0 +1,7 @@
+.crossedTask {
+  text-decoration: line-through;
+}
+
+.uncrossedTask {
+  text-decoration: none;
+}
