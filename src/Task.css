@@ -5,3 +5,7 @@
 .uncrossedTask {
   text-decoration: none;
 }
+
+.inline-btn {
+  margin-bottom: 10px;
+}

@@ -19,7 +19,10 @@ class Task extends Component {
   render() {
     let li_class = this.state.crossed ? "crossedTask" : "uncrossedTask";
     return (
-      <li className={li_class} onClick={this.crossDone}>{this.props.children}</li>
+      <>
+        <li className={li_class} onClick={this.crossDone}>{this.props.children}</li>
+        <button className="inline-btn" onClick={() => { this.props.deleteTask(this.props.index) }}>Delete</button>
+      </>
     );
   }
 }

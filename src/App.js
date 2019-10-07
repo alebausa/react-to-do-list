@@ -7,22 +7,31 @@ import { tasks } from './data/tasks';
 
 class App extends Component {
   state = {
-    initialTasks: tasks
+    myTasks: tasks,
   }
 
   randomTask = () => {
-    const { initialTasks } = this.state;
+    const { myTasks } = this.state;
     const newTask = moreTasks[Math.floor(Math.random() * moreTasks.length)];
     this.setState({
-      initialTasks: [...initialTasks, newTask],
+      myTasks: [...myTasks, newTask],
     });
   }
 
   addTask = (value) => {
-    const { initialTasks } = this.state;
+    const { myTasks } = this.state;
     this.setState({
-      initialTasks: [...initialTasks, value],
+      myTasks: [...myTasks, value],
     });
+  }
+
+  updateToDoList = (indexN) => {
+    const { myTasks } = this.state;
+    var updatedList = [...myTasks];
+    updatedList.splice(indexN, 1);
+    this.setState({
+      myTasks: updatedList,
+    })
   }
 
   render() {
@@ -32,9 +41,9 @@ class App extends Component {
         <button className="btn" onClick={this.randomTask}>Add random task</button>
         <AddTask submit={this.addTask} />
         <ul>
-          {this.state.initialTasks.map((task, index) => {
+          {this.state.myTasks.map((task, index) => {
             return (
-              <Task key={index}>{task}</Task>
+              <Task key={index} deleteTask={this.updateToDoList}>{task}</Task>
             )
           })}
         </ul>
